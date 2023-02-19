@@ -16,16 +16,19 @@ const Products = () => {
             <div className='container my-3'>
                 <h2>Products</h2>
                 <div className="d-flex justify-content-between py-3">
-                    <ul className='nav nav-pills'>
+                    <ul className='nav'>
                         <li className='nav-item'><button className={`btn btn${category === '' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('')}>All</button></li>
                         <li className='nav-item'><button className={`btn btn${category === 'snack' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('snack')}>Snacks</button></li>
                         <li className='nav-item'><button className={`btn btn${category === 'meal' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('meal')}>Meals</button></li>
                         <li className='nav-item'><button className={`btn btn${category === 'beverage' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('beverage')}>Beverages</button></li>
                     </ul>
-                    <div><input className='form-control' type='search' placeholder='Search' /></div>
+                    <ul className='nav'>
+                        <li className='nav-item'><button className='btn btn-primary me-2'>Add Product</button></li>
+                        <li className='nav-item'><input className='form-control' type='search' placeholder='Search' /></li>
+                    </ul>
                 </div>
 
-                {response?.ok && response.data?.map((product => {
+                {response?.ok && response.data?.map(product => {
 
                     const { _id, product_name, rate, available, category, createdAt, updatedAt } = product;
 
@@ -38,7 +41,7 @@ const Products = () => {
                         createdAt={createdAt}
                         updatedAt={updatedAt}
                     />
-                }))}
+                })}
             </div>
         </div>
     );
