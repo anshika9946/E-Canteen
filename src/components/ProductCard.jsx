@@ -1,10 +1,12 @@
-const ProductCard = ({ name, rate, available, category, createdAt, updatedAt }) => {
+import { Link } from 'react-router-dom';
+
+const ProductCard = ({ id, name, rate, available, category, imgUrl, description, createdAt, updatedAt }) => {
     return (
         <div className='ProductCard'>
             <div className='card mb-3'>
                 <div className='row align-items-center card-body'>
                     <div className='col'>
-                        <img className='rounded' src='https://upload.wikimedia.org/wikipedia/commons/c/cb/Samosachutney.jpg' height={80} alt={name} />
+                        <img className='rounded' src={imgUrl} height={80} alt={name} />
                     </div>
                     <div className='col-4'>
                         <h4 className='card-title'>{name} <span className='badge bg-primary'>₹ {rate}.0</span></h4>
@@ -18,7 +20,9 @@ const ProductCard = ({ name, rate, available, category, createdAt, updatedAt }) 
                         <h5 className='mb-0'>{available ? <span className='badge bg-success'>Available</span> : <span className='badge bg-danger'>Closed</span>}</h5>
                     </div>
                     <div className='col-2 text-end'>
-                        <button className='btn btn-outline-primary me-2'>Update</button>
+                        <Link to='/product/update' state={{ id, name, rate, category, imgUrl, description }}>
+                            <button className='btn btn-outline-primary me-2'>Update</button>
+                        </Link>
                         <button className='btn btn-outline-danger'>Delete</button>
                     </div>
                 </div>
