@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
 import useFetch from '../hooks/useFetch';
 import Navbar from '../components/Navbar';
 import ProductCard from '../components/ProductCard';
@@ -15,7 +16,7 @@ const Products = () => {
             <Navbar />
             <div className='container my-3'>
                 <h2>Products</h2>
-                <div className="d-flex justify-content-between py-3">
+                <div className='d-flex justify-content-between py-3'>
                     <ul className='nav'>
                         <li className='nav-item'><button className={`btn btn${category === '' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('')}>All</button></li>
                         <li className='nav-item'><button className={`btn btn${category === 'snack' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('snack')}>Snacks</button></li>
@@ -23,21 +24,29 @@ const Products = () => {
                         <li className='nav-item'><button className={`btn btn${category === 'beverage' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('beverage')}>Beverages</button></li>
                     </ul>
                     <ul className='nav'>
-                        <li className='nav-item'><NavLink  to="/productForm" ><button className='btn btn-primary me-2'>Add Product</button></NavLink></li>
+                        <li className='nav-item'>
+                            <Link to='/product/availability'><button className='btn btn-primary me-2'>Availability</button></Link>
+                        </li>
+                        <li className='nav-item'>
+                            <Link to='/product/add' ><button className='btn btn-primary me-2'>Add Product</button></Link>
+                        </li>
                         <li className='nav-item'><input className='form-control' type='search' placeholder='Search' /></li>
                     </ul>
                 </div>
 
                 {response?.ok && response.data?.map(product => {
 
-                    const { _id, product_name, rate, available, category, createdAt, updatedAt } = product;
+                    const { _id, product_name, rate, available, category, imgUrl, description, createdAt, updatedAt } = product;
 
                     return <ProductCard
                         key={_id}
+                        id={_id}
                         name={product_name}
                         rate={rate}
                         available={available}
                         category={category}
+                        imgUrl={imgUrl}
+                        description={description}
                         createdAt={createdAt}
                         updatedAt={updatedAt}
                     />
