@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     return (
         <div className='Navbar'>
-            <nav className='navbar navbar-expand-lg bg-warning '>
+            <nav className='navbar navbar-expand-lg bg-secondary '>
                 <div className='container-fluid'>
                     <NavLink to="/" className='navbar-brand'>
                         <img src='\src\images\logo.png' alt='Logo' width='80' height='60' className='d-inline-block align-text-top' />
