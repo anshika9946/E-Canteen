@@ -4,16 +4,16 @@ const ProductForm = () => {
     return (
         <div className='ProductForm'>
             <Navbar/>
-             <div class="container align-items-center">
-                <h2 class="my-4">Add Product</h2>
+             <div className="container align-items-center">
+                <h2 className="my-4">Add Product</h2>
                 <form>
                     
-                    <div class="mb-3">
-                        <label for="fullname" class="form-label">Name</label>
-                        <input type="text" name="fullname" class="form-control" />
+                    <div className="mb-3">
+                        <label htmlFor="fullname" className="form-label">Name</label>
+                        <input type="text" name="fullname" className="form-control" />
                     </div>
-                    <div class="input-group my-4">
-                        <select class="form-select" name="category">
+                    <div className="input-group my-4">
+                        <select className="form-select" name="category">
                             <option hidden>Category</option>
                             <option value="Snacks">Snacks</option>
                             <option value="Meals">Meals</option>
@@ -21,19 +21,19 @@ const ProductForm = () => {
                             <option value="Others">Others</option>
                           </select>
                     </div>
-                    <div class="mb-3">
-                        <label for="contact" class="form-label">Price</label>
-                        <input type="text" name="Price" class="form-control" />
+                    <div className="mb-3">
+                        <label htmlFor="contact" className="form-label">Price</label>
+                        <input type="text" name="Price" className="form-control" />
                     </div>
-                    <div class="mb-3">
-                        <label for="wesite" class="form-label">Description</label>
-                        <textarea class="form-control" name="subject" placeholder="Write something.." ></textarea>
+                    <div className="mb-3">
+                        <label htmlFor="wesite" className="form-label">Description</label>
+                        <textarea className="form-control" name="subject" placeholder="Write something.." ></textarea>
                     </div>
-                    <div class="mb-3">
+                    <div className="mb-3">
                     
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+                        <input type="file" className="form-control-file" />
                     </div>
-                    <button type="submit" class="btn btn-primary mb-4">
+                    <button type="submit" className="btn btn-primary mb-4">
                         Submit
                     </button>
                 </form>

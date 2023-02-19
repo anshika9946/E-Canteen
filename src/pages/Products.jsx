@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { NavLink } from "react-router-dom";
 import useFetch from '../hooks/useFetch';
 import Navbar from '../components/Navbar';
 import ProductCard from '../components/ProductCard';
@@ -23,7 +23,7 @@ const Products = () => {
                         <li className='nav-item'><button className={`btn btn${category === 'beverage' ? '' : '-outline'}-primary me-2`} onClick={() => setCategory('beverage')}>Beverages</button></li>
                     </ul>
                     <ul className='nav'>
-                        <li className='nav-item'><button className='btn btn-primary me-2'>Add Product</button></li>
+                        <li className='nav-item'><NavLink  to="/productForm" ><button className='btn btn-primary me-2'>Add Product</button></NavLink></li>
                         <li className='nav-item'><input className='form-control' type='search' placeholder='Search' /></li>
                     </ul>
                 </div>
