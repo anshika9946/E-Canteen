@@ -9,7 +9,7 @@ const Products = () => {
 
     const [category, setCategory] = useState('');
 
-    const { response } = useFetch(`/api/v1/product/${category}`);
+    const { response } = useFetch('/api/v1/product');
 
     return (
         <div className='Products'>
@@ -34,7 +34,7 @@ const Products = () => {
                     </ul>
                 </div>
 
-                {response?.ok && response.data?.map(product => {
+                {response?.ok && response.data?.filter((product => category === '' ? true : product.category === category)).map(product => {
 
                     const { _id, product_name, rate, available, category, imageUrl, description, createdAt, updatedAt } = product;
 

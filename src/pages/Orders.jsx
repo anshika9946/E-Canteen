@@ -6,9 +6,9 @@ import OrderCard from '../components/OrderCard';
 
 const Orders = () => {
 
-    const [delivered, setDelivered] = useState('false');
+    const [delivered, setDelivered] = useState('');
 
-    const { response } = useFetch(`/admin/v1/order/${delivered}`);
+    const { response } = useFetch('/admin/v1/order');
 
     return (
         <div className='Orders'>
@@ -25,7 +25,7 @@ const Orders = () => {
                         <li className='nav-item'><input className='form-control' type='search' placeholder='Search' /></li>
                     </ul>
                 </div>
-                {response?.ok && response.data?.map(order => {
+                {response?.ok && response.data?.filter(order => delivered === '' ? true : order.delivered.toString() === delivered).map(order => {
 
                     const { _id, user_id, products, amount, delivered, token, createdAt, updatedAt } = order;
 
