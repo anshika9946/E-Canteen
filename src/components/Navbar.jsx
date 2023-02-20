@@ -4,10 +4,10 @@ const Navbar = () => {
         <div className='Navbar'>
             <nav className='navbar navbar-expand-lg bg-secondary '>
                 <div className='container-fluid'>
-                    <NavLink to="/" className='navbar-brand'>
-                        <img src='\src\images\logo.png' alt='Logo' width='80' height='60' className='d-inline-block align-text-top' />
+                    {/* <NavLink to="/" className='navbar-brand'>
+                        <img src='' alt='Logo' width='80' height='60' className='d-inline-block align-text-top' />
                        
-                    </NavLink>
+                    </NavLink> */}
                     <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                         <span className='navbar-toggler-icon'></span>
                     </button>
