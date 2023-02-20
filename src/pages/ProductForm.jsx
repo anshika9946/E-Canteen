@@ -60,7 +60,7 @@ const ProductForm = () => {
                     </div>
                     <div className='mb-3'>
                         <label htmlFor="imageUrl">Image URL</label>
-                        <input className='form-control' type="text" name='imageUrl' id='imageUrl' defaultValue={location.state?.imgUrl} />
+                        <input className='form-control' type="text" name='imageUrl' id='imageUrl' defaultValue={location.state?.imageUrl} />
                     </div>
                     <div className='mb-3'>
                         <label htmlFor='description' className='form-label'>Description</label>
