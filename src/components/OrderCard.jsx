@@ -16,7 +16,7 @@ const OrderCard = ({ user, products, amount, delivered, token, createdAt, update
                         <h6>Order Summary</h6>
                         <div style={{ maxHeight: '60px', overflowX: 'hidden', overflowY: 'scroll' }}>
                             {products.map((product, idx) => {
-                                return <div className="row">
+                                return <div className="row" key={idx}>
                                     <div className="col"><small className="text-muted">{idx + 1}. {product.product_id.product_name}</small></div>
                                     <div className="col"><small className="text-muted">{product.product_id.rate} x {product.qty} = {product.product_id.rate * product.qty}</small></div>
                                 </div>
@@ -31,7 +31,7 @@ const OrderCard = ({ user, products, amount, delivered, token, createdAt, update
                         <h4 className='mb-0'><span className='badge text-bg-warning'>{token}</span></h4>
                     </div>
                     <div className='col text-end'>
-                        <button className='btn btn-outline-primary'>Delivered</button>
+                        <button className='btn btn-outline-primary'>{delivered ? 'Pending' : 'Delivered'}</button>
                     </div>
                 </div>
             </div>
