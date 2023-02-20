@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import useFetch from "../hooks/useFetch";
 import Navbar from "../components/Navbar";
@@ -7,6 +7,8 @@ import ProductAvailableCard from "../components/ProductAvailableCard";
 const ProductAvailable = () => {
 
     const { response } = useFetch('/api/v1/product');
+    const [availableProducts, setAvailableProducts] = useState([]);
+    useEffect(() => { setAvailableProducts(response?.data) }, [response])
 
     const [available, setAvailable] = useState(null);
 
@@ -26,23 +28,26 @@ const ProductAvailable = () => {
                     </ul>
                 </div>
 
-                {response?.ok && response.data.filter(product => available === null ? true : product.available === available).map(product => {
+                <div className="row row-cols-2">
+                    {response?.ok && availableProducts?.filter(product => available === null ? true : product.available === available).map(product => {
 
-                    const { _id, product_name, rate, available, category, imageUrl, description, createdAt, updatedAt } = product;
+                        const { _id, product_name, rate, available, category, imageUrl, description, createdAt, updatedAt } = product;
 
-                    return <ProductAvailableCard
-                        key={_id}
-                        id={_id}
-                        name={product_name}
-                        rate={rate}
-                        available={available}
-                        category={category}
-                        imageUrl={imageUrl}
-                        description={description}
-                        createdAt={createdAt}
-                        updatedAt={updatedAt}
-                    />
-                })}
+                        return <ProductAvailableCard
+                            key={_id}
+                            id={_id}
+                            name={product_name}
+                            rate={rate}
+                            available={available}
+                            category={category}
+                            imageUrl={imageUrl}
+                            description={description}
+                            createdAt={createdAt}
+                            updatedAt={updatedAt}
+                            setAvailableProducts={setAvailableProducts}
+                        />
+                    })}
+                </div>
             </div>
         </div>
     );
