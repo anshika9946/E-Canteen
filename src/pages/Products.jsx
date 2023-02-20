@@ -25,7 +25,7 @@ const Products = () => {
                     </ul>
                     <ul className='nav'>
                         <li className='nav-item'>
-                            <Link to='/product/availability'><button className='btn btn-primary me-2'>Availability</button></Link>
+                            <Link to='/product/available'><button className='btn btn-primary me-2'>Available</button></Link>
                         </li>
                         <li className='nav-item'>
                             <Link to='/product/add' ><button className='btn btn-primary me-2'>Add Product</button></Link>
@@ -36,7 +36,7 @@ const Products = () => {
 
                 {response?.ok && response.data?.map(product => {
 
-                    const { _id, product_name, rate, available, category, imgUrl, description, createdAt, updatedAt } = product;
+                    const { _id, product_name, rate, available, category, imageUrl, description, createdAt, updatedAt } = product;
 
                     return <ProductCard
                         key={_id}
@@ -45,7 +45,7 @@ const Products = () => {
                         rate={rate}
                         available={available}
                         category={category}
-                        imgUrl={imgUrl}
+                        imageUrl={imageUrl}
                         description={description}
                         createdAt={createdAt}
                         updatedAt={updatedAt}
